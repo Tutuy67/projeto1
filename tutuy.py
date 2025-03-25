@@ -47,24 +47,29 @@ def exibir_subtitulo(texto):
 
 
 def cadstrar_novo_restaurante():
-      os.system("cls")
-      print("cadastro de novos restaurantes\n")
-      nome_do_restaurante = input("Digite o nome do restaurante que deseja cadastrar:")
-      restaurantes.append(nome_do_restaurante)                                                                                # tela de cadastro de novo restaurante
-      print(f"o restaurante {nome_do_restaurante}  foi cadastrado com sucesso")
-      voltar_ao_menu_principal()
-      main()
-      
-      
-###################################################################################################################################################################################################################         
+   exibir_subtitulo("Cadastro de novos restaurantes")                                                                          #variável de cadastrar
+   
+   nome_do_restaurante = input("Digite o nome do restaurante que deseja cadastrar: ")
+   categoria = input(f"Digite o nome da categoria do restaureante {nome_do_restaurante}: ")
+   dados_do_restaurante = {"nome": nome_do_restaurante, "categoria": categoria, "ativo":False}
+   restaurantes.append(dados_do_restaurante)
+   print(f"o restaurante {nome_do_restaurante} foi cadastrado com sucesso!")
+   
+   voltar_ao_menu_principal()
+   
+###################################################################################################################################################################################################################       
 
 
 def listar_restaurantes():
    exibir_subtitulo("Listando os restaurantes")
    
    for restaurante in restaurantes:
-       nome_do_restaurante = restaurante["nome"]                                                                               #variável (mostra de lista de restaurantes)
-       print(f".{nome_do_restaurante}")   
+       nome_do_restaurante = restaurante ["nome"] 
+       categoria = restaurante ["categoria"]
+       ativo = restaurante  ["ativo"]                                                                                        #variável (mostra de lista de restaurantes)
+       print(f" - {nome_do_restaurante} | {categoria} | {ativo}")
+       
+   voltar_ao_menu_principal()       
       
       
 ###################################################################################################################################################################################################################        
@@ -116,15 +121,7 @@ def encerrando_programa():
    
    
 ###################################################################################################################################################################################################################   
-
-
-def cadastrar_novo_restaurante():
-   exibir_subtitulo("Cadastro de novos restaurantes")                                                                          #variável
-   
-   
-###################################################################################################################################################################################################################   
-          
-
+         
 def main():
         os.system('cls')
         nome_do_restaurante()
